@@ -1,0 +1,14 @@
+<h1>NixPix</h1>
+
+<%= form_tag({ controller: "static_pages", action: "home" }, method: :get) do %>
+	<%= label_tag :user_id, "Flicker Id: " %>
+	<%= text_field_tag :user_id, @user_id %>
+
+	<%= submit_tag "Display Photos" %>
+<% end %>
+
+
+<% if params[:user_id] %>
+	<p>User Id Accepted</p>
+	<%= group_photos(params[:user_id]) %>
+<% end %>
